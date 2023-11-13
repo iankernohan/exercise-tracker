@@ -16,7 +16,7 @@ export default function EditStrength() {
   useEffect(() => {
     async function getExercise() {
       const exercise = await axios.get(
-        `http://localhost:5000/strengthExercise/${id}`
+        `http://localhost:8000/strengthExercise/${id}`
       );
       setName(exercise.data.name);
       setWeight(exercise.data.weight);
@@ -55,7 +55,7 @@ export default function EditStrength() {
           id="name"
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value.toUpperCase())}
           required
         />
       </div>

@@ -14,7 +14,7 @@ export default function EditCardio() {
   useEffect(() => {
     async function getExercise() {
       const exercise = await axios.get(
-        `http://localhost:5000/cardioExercise/${id}`
+        `http://localhost:8000/cardioExercise/${id}`
       );
       setName(exercise.data.name);
       setDuration(exercise.data.duration);
@@ -26,7 +26,7 @@ export default function EditCardio() {
   async function handleUpdateExercise(e) {
     try {
       e.preventDefault();
-      await axios.put(`http://localhost:5000/cardioExercise/${id}`, {
+      await axios.put(`http://localhost:8000/cardioExercise/${id}`, {
         name,
         duration,
         date,
@@ -49,7 +49,7 @@ export default function EditCardio() {
           id="name"
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value.toUpperCase())}
           required
         />
       </div>

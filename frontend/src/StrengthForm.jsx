@@ -16,7 +16,7 @@ export default function StrengthForm() {
   async function handleAddExercise(e) {
     try {
       e.preventDefault();
-      await axios.post("http://localhost:5000/strengthExercise/", {
+      await axios.post("http://localhost:8000/strengthExercise/", {
         name,
         weight,
         reps,
@@ -41,7 +41,7 @@ export default function StrengthForm() {
           id="name"
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value.toUpperCase())}
           required
         />
       </div>

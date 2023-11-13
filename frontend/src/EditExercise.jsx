@@ -13,7 +13,7 @@ export default function EditExercise() {
     async function getExercise() {
       try {
         const exercise = await axios.get(
-          `http://localhost:5000/${type}Exercise/${id}`
+          `http://localhost:8000/${type}Exercise/${id}`
         );
         setExerciseType(exercise.data.type);
       } catch (e) {

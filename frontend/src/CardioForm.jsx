@@ -14,7 +14,7 @@ export default function CardioForm() {
   async function handleAddExercise(e) {
     try {
       e.preventDefault();
-      await axios.post("http://localhost:5000/cardioExercise/", {
+      await axios.post("http://localhost:8000/cardioExercise/", {
         name,
         duration,
         date,
@@ -37,7 +37,7 @@ export default function CardioForm() {
           id="name"
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value.toUpperCase())}
           required
         />
       </div>
