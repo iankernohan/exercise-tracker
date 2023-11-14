@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./ShowExercises.css";
 
 export default function ShowExercises() {
   const [exercises, setExercises] = useState([]);
   const [sortBy, setSortBy] = useState("date");
+
+  const sortByStlyes = { textDecoration: "underline", fontWeight: "600" };
 
   useEffect(() => {
     handleGetExercises();
@@ -55,24 +58,33 @@ export default function ShowExercises() {
 
   return (
     <div className="container text-center">
-      <div className="row my-4">
-        <div className="col-3" onClick={() => setSortBy("name")}>
+      <div className="row my-4" id="exercise-column-labels">
+        <div
+          className="col-3"
+          onClick={() => setSortBy("name")}
+          style={sortBy === "name" ? sortByStlyes : {}}
+        >
           Exercise Name
         </div>
-        <div className="col-3" onClick={() => setSortBy("type")}>
+        <div
+          className="col-3"
+          onClick={() => setSortBy("type")}
+          style={sortBy === "type" ? sortByStlyes : {}}
+        >
           Exercise Type
         </div>
-        <div className="col-3" onClick={() => setSortBy("date")}>
+        <div
+          className="col-3"
+          onClick={() => setSortBy("date")}
+          style={sortBy === "date" ? sortByStlyes : {}}
+        >
           Exercise Date
         </div>
         <div className="col-3">Options</div>
       </div>
       {exercises.map((ex) => {
         return (
-          <div
-            key={ex._id}
-            className="row my-2 border border-primary rounded p-2 "
-          >
+          <div key={ex._id} className="row my-2 p-2" id="exercise-bar">
             <div className="col-3 d-flex align-items-center ps-3">
               {ex.name.toUpperCase()}
             </div>
@@ -82,7 +94,7 @@ export default function ShowExercises() {
             <div className="col-3 d-flex align-items-center ps-5">
               {ex.date.substring(0, 10)}
             </div>
-            <div className="col-3 d-flex align-items-center justify-content-end">
+            <div className="col-3 d-flex align-items-center justify-content-end ">
               <Link to={`/exerciseInfo/${ex.type}/${ex._id}`}>
                 <button className="btn btn-info">Info</button>
               </Link>
