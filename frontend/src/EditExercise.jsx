@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import EditStrength from "./EditStrength";
 import EditCardio from "./EditCardio";
+import BackButton from "./BackButton";
 
 export default function EditExercise() {
   const [exerciseType, setExerciseType] = useState("");
@@ -25,9 +26,7 @@ export default function EditExercise() {
 
   return (
     <div className="">
-      <Link to="/">
-        <button className="btn btn-primary position-absolute ms-4">Back</button>
-      </Link>
+      <BackButton />
       {exerciseType === "cardio" && <EditCardio />}
       {exerciseType === "strength" && <EditStrength />}
     </div>

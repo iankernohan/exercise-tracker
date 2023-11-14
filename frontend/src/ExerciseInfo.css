@@ -1,0 +1,18 @@
+#exercise-info-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-top: 8rem;
+}
+
+#exercise-info-container section {
+  margin: 3rem 0;
+}
+
+#exercise-info-container section div:first-of-type {
+  font-weight: 600;
+}
+
+#exercise-info-container section div:last-of-type {
+  text-align: center;
+}

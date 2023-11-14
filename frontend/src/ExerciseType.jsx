@@ -1,6 +1,8 @@
+import "./ExerciseType.css";
+
 export default function ExerciseType({ exerciseType, setExerciseType }) {
   return (
-    <div className="align-self-center">
+    <div className="align-self-center" id="exercise-type-buttons">
       <button
         className={`btn rounded-start ${
           exerciseType === "cardio" ? "btn-primary" : "btn-secondary"

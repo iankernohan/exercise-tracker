@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import "./ExerciseInfo.css";
 
 import CardioInfo from "./CardioInfo";
 import StrengthInfo from "./StrengthInfo";
+import BackButton from "./BackButton";
 
 export default function ExerciseInfo() {
   const [exerciseType, setExerciseType] = useState("");
@@ -27,11 +29,13 @@ export default function ExerciseInfo() {
 
   return (
     <div className="">
-      <Link to="/">
-        <button className="btn btn-primary position-absolute ms-4">Back</button>
-      </Link>
-      {exerciseType === "cardio" && <CardioInfo exercise={exercise} />}
-      {exerciseType === "strength" && <StrengthInfo exercise={exercise} />}
+      <BackButton className="position-absolute mt-4" />
+      <div className="d-flex flex-col justify-content-center">
+        <div className="container w-50" id="exercise-info-container">
+          {exerciseType === "cardio" && <CardioInfo exercise={exercise} />}
+          {exerciseType === "strength" && <StrengthInfo exercise={exercise} />}
+        </div>
+      </div>
     </div>
   );
 }

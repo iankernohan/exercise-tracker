@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { BsFillTrash3Fill, BsInfoLg, BsFillPencilFill } from "react-icons/bs";
 import "./ShowExercises.css";
 
 export default function ShowExercises() {
@@ -57,58 +58,72 @@ export default function ShowExercises() {
   }
 
   return (
-    <div className="container text-center">
+    <div className="container">
       <div className="row my-4" id="exercise-column-labels">
         <div
-          className="col-3"
+          className="col-3 ps-3 exercise-column-label"
           onClick={() => setSortBy("name")}
           style={sortBy === "name" ? sortByStlyes : {}}
         >
           Exercise Name
         </div>
         <div
-          className="col-3"
+          className="col-3 ps-5 exercise-column-label"
           onClick={() => setSortBy("type")}
           style={sortBy === "type" ? sortByStlyes : {}}
         >
           Exercise Type
         </div>
         <div
-          className="col-3"
+          className="col-3 ps-5 exercise-column-label"
           onClick={() => setSortBy("date")}
           style={sortBy === "date" ? sortByStlyes : {}}
         >
           Exercise Date
         </div>
-        <div className="col-3">Options</div>
+        <div className="col-3 text-center pe-4">Options</div>
       </div>
       {exercises.map((ex) => {
         return (
-          <div key={ex._id} className="row my-2 p-2" id="exercise-bar">
-            <div className="col-3 d-flex align-items-center ps-3">
-              {ex.name.toUpperCase()}
-            </div>
-            <div className="col-3 d-flex align-items-center ps-5">
-              {ex.type.toUpperCase()}
-            </div>
-            <div className="col-3 d-flex align-items-center ps-5">
-              {ex.date.substring(0, 10)}
-            </div>
-            <div className="col-3 d-flex align-items-center justify-content-end ">
-              <Link to={`/exerciseInfo/${ex.type}/${ex._id}`}>
-                <button className="btn btn-info">Info</button>
-              </Link>
-              <Link to={`/editExercise/${ex.type}/${ex._id}`}>
-                <button className="btn btn-secondary mx-1">Edit</button>
-              </Link>
-              <button
-                className="btn btn-danger"
-                onClick={() => handleDeleteExercise(ex._id, ex.type)}
+          <Link
+            to={`/exerciseInfo/${ex.type}/${ex._id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div key={ex._id} className="row my-2 p-2" id="exercise-bar">
+              <div className="col-3 d-flex align-items-center ps-3">
+                {ex.name.toUpperCase()}
+              </div>
+              <div className="col-3 d-flex align-items-center ps-5">
+                {ex.type.toUpperCase()}
+              </div>
+              <div className="col-3 d-flex align-items-center ps-5">
+                {ex.date.substring(0, 10)}
+              </div>
+              <div
+                className="col-3 d-flex align-items-center justify-content-center"
+                id="exercise-options-label"
               >
-                Delete
-              </button>
+                <Link to={`/exerciseInfo/${ex.type}/${ex._id}`}>
+                  <button className="btn" id="info-button">
+                    <BsInfoLg />
+                  </button>
+                </Link>
+                <Link to={`/editExercise/${ex.type}/${ex._id}`}>
+                  <button className="btn mx-1" id="edit-button">
+                    {" "}
+                    <BsFillPencilFill />
+                  </button>
+                </Link>
+                <button
+                  className="btn"
+                  id="delete-button"
+                  onClick={() => handleDeleteExercise(ex._id, ex.type)}
+                >
+                  <BsFillTrash3Fill />
+                </button>
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>
