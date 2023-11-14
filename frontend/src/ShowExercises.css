@@ -1,0 +1,12 @@
+#exercise-column-labels div:hover {
+  font-weight: 550;
+  cursor: pointer;
+}
+
+#exercise-bar {
+  background-color: white;
+}
+
+#exercise-bar:hover {
+  background-color: rgb(240, 240, 240);
+}
