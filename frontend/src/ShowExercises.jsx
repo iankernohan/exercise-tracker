@@ -21,7 +21,7 @@ export default function ShowExercises() {
       if (sortBy === "type") setExercises(allExercises.sort(compareType));
       if (sortBy === "date") setExercises(allExercises.sort(compareDate));
     } catch (e) {
-      console.log("uh oh");
+      console.log(`Error getting exercises: ${e}`);
     }
   }
 
@@ -31,7 +31,7 @@ export default function ShowExercises() {
       console.log("Exercise Deleted");
       handleGetExercises();
     } catch (e) {
-      console.log("delete uh oh");
+      console.log(`Error deleting exercise: ${e}`);
     }
   }
 
