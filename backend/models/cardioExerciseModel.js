@@ -1,29 +1,34 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const cardioExerciseSchema = new mongoose.Schema({
+const cardioExerciseSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true,
     },
     duration: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     date: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     type: {
-        type: String,
-        default: 'cardio'
-    }
-},
-    {
-        timestamps: true
-    }
-)
+      type: String,
+      default: "cardio",
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Cardio = mongoose.model('cardio', cardioExerciseSchema);
+const Cardio = mongoose.model("cardio", cardioExerciseSchema);
 
 export default Cardio;

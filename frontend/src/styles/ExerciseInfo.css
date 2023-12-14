@@ -1,0 +1,15 @@
+#exercise-info-container {
+  margin-top: 4rem;
+}
+
+#exercise-info-container section {
+  margin: 3rem 0;
+}
+
+#exercise-info-container section div:first-of-type {
+  font-weight: 600;
+}
+
+#exercise-info-container section div:last-of-type {
+  text-align: center;
+}

@@ -1,0 +1,12 @@
+#user-info {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+#user-info section {
+  margin: 2rem 0;
+}
+
+#user-info section div:first-child {
+  font-weight: 600;
+}

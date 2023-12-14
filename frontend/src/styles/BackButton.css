@@ -1,0 +1,11 @@
+#back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 20px;
+  height: 2rem;
+}
